@@ -1,0 +1,1 @@
+export type ValObj = { [_: string]: boolean | undefined }

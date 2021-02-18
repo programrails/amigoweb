@@ -1,0 +1,291 @@
+/* fluid layout:
+
+0,217391304 * px = %
+px / 460 * 100 = %
+px / 16 = rem
+
+*/
+
+/* BEM-compliant CSS */
+
+html{
+  box-sizing: border-box;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+body{
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  color: #2C2738;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.375rem;
+
+  background-color: #E5E5E5; /*Just for demo purpose - not for production*/
+}
+
+/* Global styles begin */
+
+.global-title{
+  font-weight: bold;  
+  font-size: 2.125rem;
+  line-height: 2.75rem;
+  padding: 0 6.52173913%;
+  margin-bottom: 1.739130432%;
+}
+
+.global-description{
+  padding: 0 6.52173913%;
+  height: 1.625rem;
+}
+
+.global-link{
+  padding: 0 6.52173913%;
+  height: 1.625rem;
+  margin-bottom: 5.6521739%;
+}
+
+.global-label{
+  display: block;
+  padding: 0 8.695652174% 0 0;
+  font-weight: 500;
+  line-height: 1.3125rem;
+  height: 1.25rem;
+  margin-bottom: 1.52173913%;
+  color: #756F86;
+}
+
+.global-message{
+  height: 1.125rem;
+  width: 78.260869565%;
+  visibility: hidden;
+}
+
+/*https://www.stefanjudis.com/notes/target-non-empty-but-invalid-input-element-with-css/*/
+input:not(:placeholder-shown):invalid + .global-message{
+  visibility: visible;
+}
+
+/* Global styles end */
+
+/* LoginForm begin */
+
+.lf__wrapper{
+  margin: 0 auto;
+
+  min-width: 360px;
+  max-width: 700px; /*Not specified in the task*/
+}
+
+.lf__form{  
+  border-radius: 1.5rem;
+  background-color: white;
+  padding-top: 8.69565216%;
+}
+
+.lf__control-button{
+  height: 3.5rem;
+  margin: 0 6.52173913%;
+  width: calc(100% - 13.043478261%);
+  box-shadow: 0 0.125rem 0.25rem rgba(44, 39, 56, 0.08), 0 0.25rem 0.5rem rgba(44, 39, 56, 0.08);
+  border-radius: 0.375rem;
+  text-align: center;  
+  border: none;
+
+  color: #EBF4F8;
+  background: #0880AE;
+  margin-bottom: 10.217391304%;
+}  
+
+.lf__control-button:disabled{  
+  color: #B1B5BF;
+  background: #DBE2EA;
+}
+
+/* LoginForm end */
+
+/* FormGlobalDescription begin */
+
+.fgd__sign-in{
+  color: #0880AE;
+}
+
+.fgd__sign-in > a{
+  text-decoration: none;
+  color: #0880AE;
+  transition: color .4s linear;
+}
+
+.fgd__sign-in > a:active,
+.fgd__sign-in > a:focus,
+.fgd__sign-in > a:hover{
+  text-decoration: none;  
+  color: #c71bc2;
+}
+
+/* FormGlobalDescription end */
+
+/* PlaceTextField begin */
+
+.ptf__text-field-wrapper{
+  padding: 0 6.52173913%;
+  height: 6.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1.304347826%;
+}
+
+.ptf__text-field{
+  height: 3.25rem;
+  background: #FFFFFF;
+  border: 0.0625rem solid #DBE2EA;
+  box-sizing: border-box;
+  box-shadow: 0px 0.25rem 0.5rem rgba(44, 39, 56, 0.04);
+  border-radius: 0.375rem;
+  margin-bottom: 1.739130435%;
+}
+
+.ptf__text-field::placeholder {
+  color: #7C9CBF;
+  padding: 3.47826087% 3.47826087% 21.086956522% 3.260869565%;
+}
+
+.ptf__validation-error-message{
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  color: #FF7171;
+}
+
+/* PlaceTextField end */
+
+/* DropdownTrigger begin */
+
+.dt__wrapper{
+  padding: 0 6.52173913%;
+  margin-bottom: 5.869565217%;
+  position: relative;
+}
+
+.dt__dropbtn {
+  background-color: white;  
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 0.25rem 0.5rem rgba(44, 39, 56, 0.04);
+  border-radius: 0.375rem;
+  width: 100%;
+  height: 3.25rem;
+  text-align: left;
+  padding: 0 3.260869565%;
+  margin-bottom: 0.869565217%;
+  background: url(../svg/dropdown-control.svg) no-repeat right #ffffff;
+  background-origin: content-box;  
+}
+
+.dt__dropbtn-color-idle {
+  color: #7C9CBF;
+}
+
+.dt__dropbtn-border-idle {
+  border: 0.0625rem solid #DBE2EA;
+}
+
+.dt__dropdown-content {
+  display: none;
+  z-index: 1;
+  background: #FFFFFF;
+  border: 0.0625rem solid #DBE2EA;
+  box-sizing: border-box;
+  box-shadow: 0 0.25rem 0.5rem rgba(44, 39, 56, 0.04), 0 1.25rem 1.25rem rgba(44, 39, 56, 0.04);
+  border-radius: 0.375rem;
+}
+
+.dt__dropdown-option {
+  color: black;
+  padding: 2.608695652% 3.47826087%;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dt__dropdown-option:hover {background-color: #EBF4F8;}
+
+.dt__show {
+  position: absolute;
+  left: 6.52173913%;
+  right: 6.52173913%;
+  display: block;
+}
+
+/* DropdownTrigger end */
+
+/* Checkbox begin */
+
+.cb__wrapper{
+  display: flex;
+  padding: 0 6.52173913%;
+  margin-bottom: 4.565217391%;
+}
+
+.cb__checkbox-normal{
+  display: none;
+}
+
+.cb__checkbox-custom{
+  background: url(../svg/checkbox-normal-base.svg) no-repeat #ffffff;
+  background-position: -8px 0px; /* svg image itself is not centered */
+  height: 2.375rem;
+  display: flex;
+  align-items: center;
+  padding-left: 38px;
+}
+
+.cb__checkbox-normal:checked + .cb__checkbox-custom {
+  background: url(../svg/checkbox-normal-checked.svg) no-repeat #ffffff;
+  background-position: -8px 0px; /* svg image itself is not centered */
+}
+
+.cb__conditions-link{
+  color: #0880AE;
+  text-decoration: none;
+}
+
+/* Checkbox end */
+
+/* HomePage begin */
+
+.hp__main{
+  margin: 0 auto;
+
+  min-width: 360px;
+  max-width: 700px; /*Not specified in the task*/
+
+  padding-top: 1rem;
+  text-align: center;  
+}
+
+.hp__header{
+  font-size: 2rem;
+  padding-bottom: 3rem;
+}
+
+.hp__task{
+  text-align: left;
+  padding: 0.5rem 0;
+}
+
+.hp__subtask{
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+.hp__login-link{
+  display: inline-block;
+  font-size: 1.5rem;
+  padding-top: 3rem;
+  text-decoration: none;
+}
+
+/* HomePage end */
